@@ -1,0 +1,85 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="login.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <p id="para"></p>
+    <script>
+       const params = new URLSearchParams(window.location.search);
+    const username = params.get('user') || 'joyal';
+     document.getElementById('para').textContent = 
+      `Hello, ${username}! Welcome to the new page.`;
+      
+    </script>
+</body>
+</html>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome Page</title>
+  <style>
+    body {
+      background-color: palegoldenrod;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .welcome-box {
+      background-color: white;
+      padding: 40px;
+      width:700px;
+      border-radius: 10px;
+      text-align: center;
+      font-family: system-ui, sans-serif;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      font-size: 40px;
+      color: goldenrod;
+    }
+    .pic{
+        width: 100px;
+        border-radius: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="welcome-box">
+    <h1 id="welcome-text">Welcome!</h1>
+    <div class="pic" id="pic">
+
+    </div>
+    
+  </div>
+
+  <script>
+    // Parse query string using URLSearchParams
+    const params = new URLSearchParams(window.location.search);
+    const username = params.get('user');
+    const gendername = params.get('gender'); // fetches value associated with 'user'
+    document.getElementById('welcome-text').textContent =
+      username
+        ? `Welcome, ${decodeURIComponent(username)}!`
+        : 'Welcome!';
+    if(gendername == "male")
+    {
+        const div = document.getElementById("pic");
+        div.innerHTML = '<img src="boy.avif" >';
+    }
+    if(gendername == "female")
+    {
+        const div = document.getElementById("pic");
+        div.innerHTML = '<img  style=" padding-left:300px" src="girl.jpeg" >';
+    }
+    // URLSearchParams.get() is well-supported across modern browsers :contentReference[oaicite:1]{index=1}
+  </script>
+</body>
+</html>
